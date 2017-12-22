@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Built-By: user
+Class-Path: hibernate-jpa-2.1-api-1.0.0.Final.jar hibernate-core-5.0.1
+ 1.Final.jar jboss-logging-3.3.0.Final.jar javassist-3.18.1-GA.jar ant
+ lr-2.7.7.jar geronimo-jta_1.1_spec-1.1.1.jar jandex-2.0.0.Final.jar d
+ om4j-1.6.1.jar xml-apis-1.0.b2.jar hibernate-commons-annotations-5.0.
+ 1.Final.jar mysql-connector-java-6.0.6.jar spring-context-4.3.11.RELE
+ ASE.jar spring-aop-4.3.11.RELEASE.jar spring-beans-4.3.11.RELEASE.jar
+  spring-core-4.3.11.RELEASE.jar commons-logging-1.2.jar spring-expres
+ sion-4.3.11.RELEASE.jar spring-jdbc-4.3.6.RELEASE.jar spring-tx-4.3.6
+ .RELEASE.jar spring-orm-4.3.6.RELEASE.jar spring-data-jpa-1.11.0.RELE
+ ASE.jar spring-data-commons-1.13.0.RELEASE.jar aspectjrt-1.8.10.jar h
+ ibernate-entitymanager-5.0.11.Final.jar spring-webmvc-4.3.8.RELEASE.j
+ ar spring-web-4.3.8.RELEASE.jar javax.servlet-api-3.1.0.jar jstl-1.2.
+ jar slf4j-api-1.7.25.jar slf4j-log4j12-1.7.0.jar jcl-over-slf4j-1.7.2
+ 5.jar log4j-1.2.14.jar logback-classic-1.2.3.jar logback-core-1.2.3.j
+ ar spring-security-core-4.2.2.RELEASE.jar aopalliance-1.0.jar spring-
+ security-config-4.2.2.RELEASE.jar spring-security-web-4.2.2.RELEASE.j
+ ar car-park-manager-1.0.jar jjwt-1.0.jar vertx-auth-jwt-3.4.1.jar ver
+ tx-auth-common-3.4.1.jar vertx-jwt-3.4.1.jar vertx-core-3.4.1.jar net
+ ty-common-4.1.8.Final.jar netty-buffer-4.1.8.Final.jar netty-transpor
+ t-4.1.8.Final.jar netty-handler-4.1.8.Final.jar netty-codec-4.1.8.Fin
+ al.jar netty-handler-proxy-4.1.8.Final.jar netty-codec-socks-4.1.8.Fi
+ nal.jar netty-codec-http-4.1.8.Final.jar netty-codec-http2-4.1.8.Fina
+ l.jar netty-resolver-4.1.8.Final.jar netty-resolver-dns-4.1.8.Final.j
+ ar netty-codec-dns-4.1.8.Final.jar jackson-core-2.7.4.jar jackson-dat
+ abind-2.7.4.jar jackson-annotations-2.7.0.jar
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_112
+
