@@ -22,7 +22,7 @@ public class TokenServiceImpl implements TokenService {
     UserDetailsService userDetailsService;
 
     @Override
-    public boolean authenticationUser(UserForm user) {
+    public String authenticationUser(UserForm user) {
         String login = user.getUsername();
         String password = user.getPassword();
 
@@ -37,10 +37,10 @@ public class TokenServiceImpl implements TokenService {
                     SecurityContextHolder.getContext().setAuthentication(authentication);
 
                 LOG.info("Create token: " + token);
-                return true;
+                return token;
             }
         }
 
-        return false;
+        return null;
     }
 }

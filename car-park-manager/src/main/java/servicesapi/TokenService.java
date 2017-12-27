@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface TokenService {
-    public boolean authenticationUser(UserForm user);
+    public String authenticationUser(UserForm user);
 }

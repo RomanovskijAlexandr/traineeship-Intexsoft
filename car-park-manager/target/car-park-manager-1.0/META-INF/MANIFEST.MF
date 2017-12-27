@@ -11,20 +11,21 @@ Class-Path: hibernate-jpa-2.1-api-1.0.0.Final.jar hibernate-core-5.0.1
  .RELEASE.jar spring-orm-4.3.6.RELEASE.jar spring-data-jpa-1.11.0.RELE
  ASE.jar spring-data-commons-1.13.0.RELEASE.jar aspectjrt-1.8.10.jar h
  ibernate-entitymanager-5.0.11.Final.jar spring-webmvc-4.3.8.RELEASE.j
- ar spring-web-4.3.8.RELEASE.jar javax.servlet-api-3.1.0.jar jstl-1.2.
- jar slf4j-api-1.7.25.jar slf4j-log4j12-1.7.0.jar jcl-over-slf4j-1.7.2
- 5.jar log4j-1.2.14.jar logback-classic-1.2.3.jar logback-core-1.2.3.j
- ar spring-security-core-4.2.2.RELEASE.jar aopalliance-1.0.jar spring-
- security-config-4.2.2.RELEASE.jar spring-security-web-4.2.2.RELEASE.j
- ar car-park-manager-1.0.jar jjwt-1.0.jar vertx-auth-jwt-3.4.1.jar ver
- tx-auth-common-3.4.1.jar vertx-jwt-3.4.1.jar vertx-core-3.4.1.jar net
- ty-common-4.1.8.Final.jar netty-buffer-4.1.8.Final.jar netty-transpor
- t-4.1.8.Final.jar netty-handler-4.1.8.Final.jar netty-codec-4.1.8.Fin
- al.jar netty-handler-proxy-4.1.8.Final.jar netty-codec-socks-4.1.8.Fi
- nal.jar netty-codec-http-4.1.8.Final.jar netty-codec-http2-4.1.8.Fina
- l.jar netty-resolver-4.1.8.Final.jar netty-resolver-dns-4.1.8.Final.j
- ar netty-codec-dns-4.1.8.Final.jar jackson-core-2.7.4.jar jackson-dat
- abind-2.7.4.jar jackson-annotations-2.7.0.jar
+ ar javax.servlet-api-3.1.0.jar jstl-1.2.jar slf4j-api-1.7.25.jar slf4
+ j-log4j12-1.7.0.jar jcl-over-slf4j-1.7.25.jar log4j-1.2.14.jar logbac
+ k-classic-1.2.3.jar logback-core-1.2.3.jar spring-security-core-4.2.2
+ .RELEASE.jar aopalliance-1.0.jar spring-security-config-4.2.2.RELEASE
+ .jar spring-security-web-4.2.2.RELEASE.jar car-park-manager-1.0.jar j
+ jwt-1.0.jar vertx-auth-jwt-3.4.1.jar vertx-auth-common-3.4.1.jar vert
+ x-jwt-3.4.1.jar vertx-core-3.4.1.jar netty-common-4.1.8.Final.jar net
+ ty-buffer-4.1.8.Final.jar netty-transport-4.1.8.Final.jar netty-handl
+ er-4.1.8.Final.jar netty-codec-4.1.8.Final.jar netty-handler-proxy-4.
+ 1.8.Final.jar netty-codec-socks-4.1.8.Final.jar netty-codec-http-4.1.
+ 8.Final.jar netty-codec-http2-4.1.8.Final.jar netty-resolver-4.1.8.Fi
+ nal.jar netty-resolver-dns-4.1.8.Final.jar netty-codec-dns-4.1.8.Fina
+ l.jar jackson-core-2.7.4.jar jackson-databind-2.7.4.jar jackson-annot
+ ations-2.7.0.jar spring-web-4.3.10.RELEASE.jar manager-1.0-SNAPSHOT.j
+ ar
 Created-By: IntelliJ IDEA
 Build-Jdk: 1.8.0_112
 

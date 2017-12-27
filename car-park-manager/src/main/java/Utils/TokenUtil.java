@@ -9,23 +9,20 @@ import java.security.NoSuchAlgorithmException;
 public class TokenUtil {
     public static final String MAGIC_KEY = "obfuscate";
 
-    public static String createToken(UserDetails userDetails){
-
+    public static String createToken(UserDetails userDetails) {
         /* Expires in 10 minutes */
         long expires = System.currentTimeMillis() + 1000L * 60 * 10;
-
         StringBuilder tokenBuilder = new StringBuilder();
         tokenBuilder.append(userDetails.getUsername());
         tokenBuilder.append(":");
         tokenBuilder.append(expires);
         tokenBuilder.append(":");
         tokenBuilder.append(TokenUtil.computeSignature(userDetails, expires));
-
         return tokenBuilder.toString();
     }
 
 
-    public static String computeSignature(UserDetails userDetails, long expires){
+    public static String computeSignature(UserDetails userDetails, long expires) {
 
         StringBuilder signatureBuilder = new StringBuilder();
         signatureBuilder.append(userDetails.getUsername());
@@ -35,19 +32,17 @@ public class TokenUtil {
         signatureBuilder.append(userDetails.getPassword());
         signatureBuilder.append(":");
         signatureBuilder.append(TokenUtil.MAGIC_KEY);
-
         MessageDigest digest;
         try {
             digest = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException e) {
             throw new IllegalStateException("No MD5 algorithm available!");
         }
-
         return new String(Hex.encode(digest.digest(signatureBuilder.toString().getBytes())));
     }
 
 
-    public static String getUserNameFromToken(String authToken){
+    public static String getUserNameFromToken(String authToken) {
 
         if (null == authToken) {
             return null;

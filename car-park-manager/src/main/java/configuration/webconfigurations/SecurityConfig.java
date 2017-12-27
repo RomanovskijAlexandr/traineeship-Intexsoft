@@ -46,8 +46,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .formLogin()
+        /*http
+                .formLogin().disable()
                 .loginPage("/login")
                 .permitAll()
                 .and()
@@ -61,6 +61,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/welcomeadmin").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().authenticated();
 
+        http.addFilterBefore(new TokenAuthenticationFilter(userDetailsService),
+                UsernamePasswordAuthenticationFilter.class);*/
+        http.csrf().disable();
+        http.formLogin().disable();
+        http.authorizeRequests()
+                .antMatchers("/login/authorize").permitAll()
+                .antMatchers("/rest/**").access("hasRole('ROLE_USER')");
         http.addFilterBefore(new TokenAuthenticationFilter(userDetailsService), UsernamePasswordAuthenticationFilter.class);
     }
 }
