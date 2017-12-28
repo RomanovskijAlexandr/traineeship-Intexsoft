@@ -24,12 +24,14 @@ public class BusService {
     @PersistenceContext
     private EntityManager entityManager;
 
+    /**
+     * Get all buses from DB.
+     * @return List of buses
+     */
     @Transactional
     public List<Bus> getBuses() {
         logger.info("do getBuses() in BusService");
         Query query = entityManager.createNativeQuery("SELECT ID, NUMBER , Rote_ID FROM bus", Bus.class);
-        //System.out.println(query.getResultList());
-        //System.out.println(busRepository.getOne( 2L));
         return query.getResultList();
     }
 }

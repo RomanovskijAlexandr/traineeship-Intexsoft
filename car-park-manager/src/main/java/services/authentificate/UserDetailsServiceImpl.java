@@ -20,8 +20,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
-
-    //get access for user
+    /**
+     * Get access for user
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -30,7 +34,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         for (Role role: user.getRoles()) {
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         }
-        org.springframework.security.core.userdetails.User userDetails = new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
+        org.springframework.security.core.userdetails.User userDetails = new org.springframework
+                .security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
         return userDetails;
     }
 }

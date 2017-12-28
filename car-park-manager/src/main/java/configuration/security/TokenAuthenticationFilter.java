@@ -21,6 +21,14 @@ public class TokenAuthenticationFilter extends UsernamePasswordAuthenticationFil
         this.userDetailsService = userDetailsService;
     }
 
+    /**
+     * Create filter for user's authentificate by token
+     * @param request
+     * @param response
+     * @param chain
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
@@ -45,6 +53,11 @@ public class TokenAuthenticationFilter extends UsernamePasswordAuthenticationFil
         chain.doFilter(request, response);
     }
 
+    /**
+     *
+     * @param request
+     * @return
+     */
     private HttpServletRequest getAsHttpRequest(ServletRequest request) {
         if (!(request instanceof HttpServletRequest)) {
             throw new RuntimeException("Expecting an HTTP request");
@@ -52,6 +65,11 @@ public class TokenAuthenticationFilter extends UsernamePasswordAuthenticationFil
         return (HttpServletRequest) request;
     }
 
+    /**
+     * Get token from request and from headers
+     * @param httpRequest
+     * @return object String value
+     */
     private String extractAuthTokenFromRequest(HttpServletRequest httpRequest) {
         String authToken = httpRequest.getHeader("X-Auth-Token");
         if (authToken == null) {

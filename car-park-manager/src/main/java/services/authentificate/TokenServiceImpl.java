@@ -21,26 +21,28 @@ public class TokenServiceImpl implements TokenService {
     @Autowired
     UserDetailsService userDetailsService;
 
+    /**
+     * Authentificate user
+     * @param user UserForm value
+     * @return token
+     */
     @Override
     public String authenticationUser(UserForm user) {
         String login = user.getUsername();
         String password = user.getPassword();
-
         if (login != null && password != null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(login);
-            if (userDetails != null && userDetails.getUsername().equals(login) && userDetails.getPassword().equals(password)) {
+            if (userDetails != null && userDetails.getUsername().equals(login)
+                    && userDetails.getPassword().equals(password)) {
                 String token = TokenUtil.createToken(userDetails);
-
-                TokenAuthentication authentication = new TokenAuthentication(userDetails, null, userDetails.getAuthorities());
+                TokenAuthentication authentication = new TokenAuthentication(userDetails,
+                        null, userDetails.getAuthorities());
                 authentication.setToken(token);
-
-                    SecurityContextHolder.getContext().setAuthentication(authentication);
-
+                SecurityContextHolder.getContext().setAuthentication(authentication);
                 LOG.info("Create token: " + token);
                 return token;
             }
         }
-
         return null;
     }
 }

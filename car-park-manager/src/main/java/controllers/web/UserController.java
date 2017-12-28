@@ -31,16 +31,28 @@ public class UserController {
     @Autowired
     private UserValidator userValidator;
 
+    /**
+     * Get method. Add attribute in model.
+     * @param model Model value
+     * @return view name registration
+     */
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model){
         model.addAttribute("userForm", new User());
-
         return "registration";
     }
 
+    /**
+     * Post method. Check input user's data and register in application.
+     * @param user User value
+     * @param bindingResult BindingResult value
+     * @param model Model value
+     * @return view name registration if input data is uncorrect
+     * @return view name welcomeuser if input data is correct
+     */
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-        userValidator.validate(userForm, bindingResult);
+    public String registration(@ModelAttribute("userForm") User user, BindingResult bindingResult, Model model) {
+        userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
             List<String> errors = new ArrayList<>();
             for (Object object : bindingResult.getAllErrors()) {
@@ -52,17 +64,27 @@ public class UserController {
             model.addAttribute("error",errors);
             return "registration";
         }else {
-            userService.save(userForm);
-            securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
+            userService.save(user);
+            securityService.autoLogin(user.getUsername(), user.getConfirmPassword());
             return "welcomeuser";
         }
     }
 
+    /**
+     *
+     * @param model Model value
+     * @return view name welcomeuser
+     */
     @RequestMapping(value = "/welcomeuser", method = RequestMethod.GET)
     public String welcome(Model model) {
         return "welcomeuser";
     }
 
+    /**
+     *
+     * @param model Model value
+     * @return view name welcomeadmin
+     */
     @RequestMapping(value = "/welcomeadmin", method = RequestMethod.GET)
     public String admin(Model model) {
         return "welcomeadmin";

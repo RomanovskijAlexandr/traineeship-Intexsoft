@@ -19,24 +19,26 @@ public class UserValidator implements Validator {
         return User.class.equals(aClass);
     }
 
+    /**
+     * Validate input user's data
+     * @param object Object value
+     * @param errors Errors value
+     */
     @Override
-    public void validate(Object o, Errors errors) {
-        User user = (User) o;
-
+    public void validate(Object object, Errors errors) {
+        User user = (User) object;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "Required");
         if (user.getUsername().length() < 4) {
             errors.rejectValue("username", "Username must be more then 4 symbols.");
         }
-
         if (userService.findByUsername(user.getUsername()) != null) {
             errors.rejectValue("username", "Such username already exists.");
         }
-
-      /*  ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Field password is required.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password",
+                "Field password is required.");
         if (user.getPassword().length() < 4 || user.getPassword().length() > 8) {
             errors.rejectValue("password", "Password must be from 4 to 8 characters.");
-        }*/
-
+        }
         if (!user.getConfirmPassword().equals(user.getPassword())) {
             errors.rejectValue("confirmPassword", "Password don't match.");
         }

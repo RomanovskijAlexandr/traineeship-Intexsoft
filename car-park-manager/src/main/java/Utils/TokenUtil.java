@@ -9,6 +9,11 @@ import java.security.NoSuchAlgorithmException;
 public class TokenUtil {
     public static final String MAGIC_KEY = "obfuscate";
 
+    /**
+     * Create token
+     * @param userDetails UserDetails value
+     * @return token as a string
+     */
     public static String createToken(UserDetails userDetails) {
         /* Expires in 10 minutes */
         long expires = System.currentTimeMillis() + 1000L * 60 * 10;
@@ -21,9 +26,13 @@ public class TokenUtil {
         return tokenBuilder.toString();
     }
 
-
+    /**
+     *
+     * @param userDetails UserDetails value
+     * @param expires long value
+     * @return hashcode for token
+     */
     public static String computeSignature(UserDetails userDetails, long expires) {
-
         StringBuilder signatureBuilder = new StringBuilder();
         signatureBuilder.append(userDetails.getUsername());
         signatureBuilder.append(":");
@@ -41,28 +50,32 @@ public class TokenUtil {
         return new String(Hex.encode(digest.digest(signatureBuilder.toString().getBytes())));
     }
 
-
+    /**
+     * Get username from token.
+     * @param authToken String value
+     * @return username from token
+     */
     public static String getUserNameFromToken(String authToken) {
-
         if (null == authToken) {
             return null;
         }
-
         String[] parts = authToken.split(":");
         return parts[0];
     }
 
-
+    /**
+     * Check token.
+     * @param authToken String value
+     * @param userDetails UserDetails value
+     * @return boolean value
+     */
     public static boolean validateToken(String authToken, UserDetails userDetails) {
-
         String[] parts = authToken.split(":");
         long expires = Long.parseLong(parts[1]);
         String signature = parts[2];
-
         if (expires < System.currentTimeMillis()) {
             return false;
         }
-
         return signature.equals(TokenUtil.computeSignature(userDetails, expires));
     }
 }

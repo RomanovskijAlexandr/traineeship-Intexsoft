@@ -23,6 +23,10 @@ public class UserServiceImpl implements UserService {
     @Autowired
     RoleRepository roleRepository;
 
+    /**
+     * Save user in DB.
+     * @param user User value
+     */
     @Override
     public void save(User user) {
         Set<Role> roles = new HashSet<>();
@@ -31,6 +35,11 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    /**
+     * Find user in DB by username.
+     * @param username String value
+     * @return user that find
+     */
     @Override
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);

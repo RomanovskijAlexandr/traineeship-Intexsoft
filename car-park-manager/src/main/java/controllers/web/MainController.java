@@ -34,7 +34,11 @@ public class MainController {
     @Autowired
     MessageSource messageSource;
 
-
+    /**
+     * Get method. Add all buses from database in model.
+     * @param model ModelMap value
+     * @return view name index
+     */
     @RequestMapping(value = "buses", method = RequestMethod.GET)
     public String indexBus(ModelMap model) {
         logger.info("do method indexBus() in MainController");
@@ -46,6 +50,11 @@ public class MainController {
         return "index";
     }
 
+    /**
+     * Get method. Add all drivers from database in model.
+     * @param model ModelMap value
+     * @return view name index
+     */
     @RequestMapping(value = "drivers", method = RequestMethod.GET)
     public String indexDriver(ModelMap model) {
         logger.info("do method indexDriver() in MainController");
@@ -56,6 +65,11 @@ public class MainController {
         return "index";
     }
 
+    /**
+     * Get method. Add all rotes from database in model.
+     * @param model ModelMap value
+     * @return view name index
+     */
     @RequestMapping(value = "rotes", method = RequestMethod.GET)
     public String indexRote(ModelMap model) {
         logger.info("do method indexRote() in MainController");

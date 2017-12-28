@@ -23,6 +23,10 @@ public class DriveService {
     @PersistenceContext
     private EntityManager entityManager;
 
+    /**
+     * Get all drivers from DB.
+     * @return List of drivers
+     */
     @Transactional
     public List<Driver> getDrivers() {
         logger.info("do getDrivers() in DriveService");

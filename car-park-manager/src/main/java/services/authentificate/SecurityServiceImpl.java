@@ -25,6 +25,11 @@ public class SecurityServiceImpl implements SecurityService {
     @Autowired
     TokenService tokenService;
 
+    /**
+     * Find user in context.
+     * @return user's username if user logged in
+     * @return null if user didn't log in
+     */
     @Override
     public String findLoggedInUsername() {
         Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
@@ -34,6 +39,11 @@ public class SecurityServiceImpl implements SecurityService {
         return null;
     }
 
+    /**
+     * Do auto login in application.
+     * @param username String value
+     * @param password String value
+     */
     @Override
     public void autoLogin(String username, String password) {
         UserForm userForm = new UserForm();
@@ -41,9 +51,9 @@ public class SecurityServiceImpl implements SecurityService {
         userForm.setUsername(userDetails.getUsername());
         userForm.setPassword(userDetails.getPassword());
         tokenService.authenticationUser(userForm);
-        TokenAuthentication authentication = new TokenAuthentication(userDetails, null, userDetails.getAuthorities());
+        TokenAuthentication authentication = new TokenAuthentication(userDetails,
+                null, userDetails.getAuthorities());
         authentication.setToken(TokenUtil.createToken(userDetails));
-
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 }

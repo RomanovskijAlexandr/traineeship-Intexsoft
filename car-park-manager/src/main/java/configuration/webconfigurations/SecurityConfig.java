@@ -39,35 +39,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider);
     }
 
-    /**
-     *
-     * @param http
-     * @throws Exception
-     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*http
-                .formLogin().disable()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/login/authorize").permitAll()
-                .antMatchers("/buses").authenticated()
-                .antMatchers("/drivers").authenticated()
-                .antMatchers("/rotes").authenticated()
-                .antMatchers("/registration").permitAll()
-                .antMatchers("/welcomeuser").authenticated()
-                .antMatchers("/welcomeadmin").access("hasRole('ROLE_ADMIN')")
-                .anyRequest().authenticated();
-
-        http.addFilterBefore(new TokenAuthenticationFilter(userDetailsService),
-                UsernamePasswordAuthenticationFilter.class);*/
         http.csrf().disable();
         http.formLogin().disable();
         http.authorizeRequests()
                 .antMatchers("/login/authorize").permitAll()
                 .antMatchers("/rest/**").access("hasRole('ROLE_USER')");
-        http.addFilterBefore(new TokenAuthenticationFilter(userDetailsService), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(new TokenAuthenticationFilter(userDetailsService),
+                UsernamePasswordAuthenticationFilter.class);
     }
 }

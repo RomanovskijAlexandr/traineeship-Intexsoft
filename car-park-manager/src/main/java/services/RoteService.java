@@ -23,6 +23,10 @@ public class RoteService {
     @PersistenceContext
     private EntityManager entityManager;
 
+    /**
+     * Get all rotes from DB.
+     * @return List of rotes
+     */
     @Transactional
     public List<Rote> getRotes() {
         logger.info("do getRotes() in RoteService");
